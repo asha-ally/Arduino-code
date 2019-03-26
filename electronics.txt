@@ -1,0 +1,91 @@
+int REDLED= 10;
+int GREENLED=12;
+int blinkyred;
+int blinkygreen;
+int redon;
+int redoff;
+int greenon;
+int greenoff;
+
+
+ void setup() {
+        Serial.begin(9600);
+        pinMode(REDLED,OUTPUT);
+        pinMode(GREENLED,OUTPUT);
+        Serial.println("First arduino code");
+        Serial.println("");
+
+       Serial.println("How many Red Blinks ?");
+       while( Serial.available()==0); {};
+       blinkyred=Serial.parseInt ();
+
+       Serial.println("How many Green Blinks ?");
+       while(Serial.available()==0);{};
+       blinkygreen=Serial.parseInt ();
+
+       Serial.println("How long Red goes on?");
+       while (Serial.available()==0); {};
+       redon=Serial.parseInt ();
+
+      Serial.println("How long Red goes off ?");
+      while(Serial.available()==0); {};
+      redoff=Serial.parseInt ();
+  
+      Serial.println("How long Green goes on?");
+      while (Serial.available()==0); {};
+      greenon=Serial.parseInt ();
+
+      Serial.println("How long Green goes off?");
+       while (Serial.available()==0); {};
+      greenoff=Serial.parseInt ();
+
+  
+  
+  // put your setup code here, to run once:
+
+}
+
+void loop()
+{
+  for (int a=1;a<=blinkyred;a=a+1)
+ 
+  {
+    Serial.print("REDLED blinking #");
+     Serial.println(a);
+    digitalWrite(REDLED,HIGH);
+    delay (redon);
+    digitalWrite(REDLED,LOW);
+    delay (redoff);
+    
+  }
+
+   Serial.println(" ");
+ 
+  
+
+ for (int a=1;a<=blinkygreen;a=a+1)
+ 
+  {
+    Serial.print("GREENLED blinking #");
+    Serial.println(a);
+    digitalWrite(GREENLED,HIGH);
+    delay (greenon);
+    digitalWrite(GREENLED,LOW);
+    delay (greenoff);
+   }
+
+    Serial.println(" ");
+}
+
+  
+
+
+
+
+
+
+    
+  
+  
+  // put your main code here, to run repeatedly:
+
